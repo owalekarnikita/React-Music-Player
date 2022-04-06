@@ -1,0 +1,15 @@
+.divbor {
+  border-right: 1px solid lightgray;
+}
+
+section ul .li, section ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+section ul .a {
+  margin-left: 5%;
+  margin-top: -4px;
+}
+/*# sourceMappingURL=navbar.css.map */

@@ -1,0 +1,21 @@
+
+ .mg-right {
+     margin-right: 0px;
+     width: 70%;
+ }
+ .right {
+    float:right;
+    z-index:2;
+    margin-right: 0;
+    position:relative;
+ }
+
+.bgimg {
+    background-image: url ('../images/banner.jpg');
+}
+.tg {
+    display: flex;
+    .mar {
+        margin-top: -4px;
+    }
+}
