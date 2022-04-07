@@ -6,7 +6,7 @@ module.exports = {
     "./src/Components/Navbar.tsx",
     "./src/Components/Aside.tsx",
     "./src/Components/List.tsx",
-    "./src/Components/Addlist.tsx"
+    "./src/Components/ListArray.tsx"
   ],
   theme: {
     extend: {},
