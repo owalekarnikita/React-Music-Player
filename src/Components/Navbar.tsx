@@ -14,7 +14,7 @@ const Navbar = () => {
         <br/>
         <section className='pl-2'>
             <ul>
-                <li className='li p-2'> <AiOutlineHome /> <a href='./' className='a'> Home</a> </li>
+                <li className='li p-2 act'> <AiOutlineHome /> <a href='./' className='a'> Home</a> </li>
                 <li className='li p-2'> <AiOutlineGitlab /> <a href='./' className='a'> Trendy</a> </li>
                 <li className='li p-2'> <HiOutlineMusicNote /> <a href='./' className='a'> Library</a> </li>
             </ul>
