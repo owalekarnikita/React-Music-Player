@@ -3,7 +3,7 @@ import React,{useState} from 'react';
 import ListArray from './ListArray';
 
 
-interface MyList {
+ export interface MyList {
     list : {
         id : number,
         img : string,
@@ -21,7 +21,7 @@ export const List = () => {
         {
             id : 1,
             img : require('./images/2.png'),
-            title : "We are Never Ever Ever Getting Back together ...",
+            title : "We are Never Ever Getting Back together ...",
             listeners : "66,789,456",
             time : "3:40",
             album : "Red",
@@ -65,6 +65,33 @@ export const List = () => {
         },
         {
             id : 6,
+            img : require('./images/2.jpg'),
+            title : "Back To December",
+            listeners : "78,789,456",
+            time : "3:58",
+            album : "1998",
+            url : require('./songs/3.mp3')
+        },
+        {
+            id : 7,
+            img : require('./images/4.jpg'),
+            title : " Long Live ...",
+            listeners : "66,789,456",
+            time : "3:40",
+            album : "Long Live",
+            url : require('./songs/4.mp3')
+        },
+        {
+            id : 8,
+            img : require('./images/1.jpg'),
+            title : "I Knew You Were Trouble. (Remix) [feat. Sammy Adams]",
+            listeners : "46,789,456",
+            time : "3:25",
+            album : "Red",
+            url : require('./songs/5.mp3')
+        },
+        {
+            id : 9,
             img : require('./images/2.jpg'),
             title : "Back To December",
             listeners : "78,789,456",

@@ -1,12 +1,11 @@
 import React from 'react';
 import Aside from './Aside';
-import Navbar from './Navbar';
-import "./scss/main.css";
+
+
 
 const Main = () => {
   return (
-    <div className='main p-2'>
-        <Navbar />
+    <div className='h-screen'>  
         <Aside />
     </div>
   )

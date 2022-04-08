@@ -16,8 +16,9 @@ interface Artist{
 const ListArray:React.FC<Artist> = ({list}) => {
    
   return (
-    <ol className='h-72 overflow-y-scroll'>
-        <li className='grid grid-cols-12 gap-1 pl-2 pr-2 pt-3 pb-3'>
+      <div>
+    <ol className=''>
+        <li className='grid grid-cols-12 gap-1 pl-2 pr-2 pt-3 pb-3 font-bold'>
                     <span className='col-span-1 '>#</span>
                     <span className='col-span-1 '></span>
                     <span className='col-span-5 '>Title</span> 
@@ -31,13 +32,13 @@ const ListArray:React.FC<Artist> = ({list}) => {
                 const Active =( ) => {
                         let a = new Audio(song.url);
                         a.play();
-                        a.onloadedmetadata = function() {
-                            alert(a.duration);
-                          };
+                        // a.onloadedmetadata = function() {
+                        //     alert(a.duration);
+                        // };
                }
 
             return (
-                <li className='grid grid-cols-12 gap-1 p-1 pl-3 pr-3 active:bg-violet-500 active' key={index} onClick={Active} >
+                <li className='grid grid-cols-12 gap-1 p-1 pl-3 pr-3' key={index} onClick={Active} >
                     <span className='col-span-1'>{song.id}</span>
                     <span className='col-span-1'><img src={song.img} alt="img" className='w-14 h-14'/></span>
                     <span className='col-span-5'>{song.title}</span>
@@ -48,6 +49,7 @@ const ListArray:React.FC<Artist> = ({list}) => {
             );
         })}
     </ol>
+    </div>
   )
 }
 
