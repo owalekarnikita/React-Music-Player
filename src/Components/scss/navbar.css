@@ -2,19 +2,27 @@
   border-right: 1px solid lightgray;
 }
 
-section ul .li, section ul li {
+section ul a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
 section ul .a {
-  margin-left: 5%;
-  margin-top: -4px;
+  margin-right: 5%;
+  margin-top: 4px;
 }
 
-.act {
+section ul li a.active {
   color: red;
   font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+section ul li a.active .a {
+  margin-right: 5%;
+  margin-top: 4px;
 }
 /*# sourceMappingURL=navbar.css.map */

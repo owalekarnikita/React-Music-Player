@@ -1,5 +1,6 @@
 
 import React,{useState} from 'react';
+import Bottom from './Bottom';
 import ListArray from './ListArray';
 
 
@@ -103,7 +104,11 @@ export const List = () => {
     ]);
 
   return (
+      <div>
         <ListArray list ={list}/>
+        <hr/><br />
+        <Bottom list={list} />
+    </div>
   )
 }
 

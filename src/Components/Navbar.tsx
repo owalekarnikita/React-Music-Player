@@ -5,7 +5,7 @@ import { BsRecordCircleFill, BsMusicNoteList, BsCollectionPlay } from "react-ico
 import { RiUserAddLine } from "react-icons/ri";
 import "./scss/main.css";
 import "./scss/navbar.css";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
  
 
 const Navbar = () => {
@@ -15,25 +15,25 @@ const Navbar = () => {
         <br/>
         <section className='pl-2'>
             <ul>
-                <li className='li p-2 act'> <AiOutlineHome /> <Link to="/" className='a'>Home</Link> </li>
-                <li className='li p-2'> <AiOutlineGitlab /> <Link to="/Trends" className='a'> Trendy</Link> </li>
-                <li className='li p-2'> <HiOutlineMusicNote /> <Link to="/" className='a'> Library</Link> </li>
+                <li className='li p-2'> <NavLink to="/"> <AiOutlineHome className='a'/> Home</NavLink> </li>
+                <li className='li p-2'> <NavLink to="/Trends" ><AiOutlineGitlab className='a'/>  Trendy</NavLink> </li>
+                <li className='li p-2'> <NavLink to="/Library" ><HiOutlineMusicNote className='a'/>  Library</NavLink> </li>
             </ul>
             <br/>
             <span className='p-2 text-gray-500'> Discover</span>
             <br /><br />
             <ul>
-                <li className='li p-2'> <AiOutlineCalendar /> <Link to="/" className='a'>Discover Weekly</Link> </li>
-                <li className='li p-2'> <BsRecordCircleFill /> <Link to="/" className='a'> Made For You</Link></li>
-                <li className='li p-2'> <BsCollectionPlay /> <Link to="/" className='a'> Daily Mix</Link> </li>
+                <li className='li p-2'> <NavLink to="/extra-pages/Discover" ><AiOutlineCalendar className='a'/> Discover Weekly</NavLink> </li>
+                <li className='li p-2'> <NavLink to="/extra-pages/Made" ><BsRecordCircleFill className='a'/>  Made For You</NavLink></li>
+                <li className='li p-2'> <NavLink to="/extra-pages/Daily" ><BsCollectionPlay className='a'/>  Daily Mix</NavLink> </li>
             </ul>
             <br/>
             <span className='p-2 text-gray-500'> Your Collections</span>
             <br /><br />
             <ul>
-                <li className='li p-2'> <AiOutlineHeart /> <Link to="/" className='a'>Liked Songs</Link> </li>
-                <li className='li p-2'> <RiUserAddLine /> <Link to="/" className='a'> Favorite Artist</Link> </li>
-                <li className='li p-2'> <BsMusicNoteList /> <Link to="/" className='a'> Playlist</Link> </li>
+                <li className='li p-2'> <NavLink to="/extra-pages/Discover" > <AiOutlineHeart className='a'/> Liked Songs</NavLink> </li>
+                <li className='li p-2'> <NavLink to="/extra-pages/Made" ><RiUserAddLine className='a'/>  Favorite Artist</NavLink> </li>
+                <li className='li p-2'> <NavLink to="/extra-pages/Daily" ><BsMusicNoteList className='a'/>  Playlist</NavLink> </li>
             </ul>
         </section>
     </div>

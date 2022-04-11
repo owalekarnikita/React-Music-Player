@@ -5,7 +5,8 @@ module.exports = {
     "./src/index.tsx",
     "./src/Components/Navbar.tsx",
     "./src/Components/Aside.tsx",
-    "./src/Components/List.tsx",
+    "./src/Components/Bottom.tsx",
+    "./src/Components/Search.tsx",
     "./src/Components/ListArray.tsx"
   ],
   theme: {

@@ -4,18 +4,27 @@
 
 section {
     ul {
-        .li,li {
+        a {
             display: flex;
         }
         .a{
-            margin-left: 5%;
-            margin-top: -4px;
+            margin-right: 5%;
+            margin-top: 4px;
+        }
+        li
+        {
+            a.active {
+            color: red;
+            font-weight: bold;
+            display: flex;
+            .a{
+                margin-right: 5%;
+                margin-top: 4px;
+            }
+            }
+            
         }
         
     }
 }
 
-.act {
-    color: red;
-    font-weight: bold;
-}
