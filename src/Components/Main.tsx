@@ -4,7 +4,7 @@ import Aside from './Aside';
 
 const Main = () => {
   return (
-    <div className='max-h-screen p-2'>  
+    <div className='h-3/4 p-2 pr-3 overflow-auto'>  
         <Aside />
     </div>
   )

@@ -7,7 +7,7 @@ import { MdVerified } from "react-icons/md";
 export const Aside = ()=> {
   
   return (
-      <div>
+      <div className='h-screen'>
           <section className='bgimg p-10 text-white'>
             <span className='tg pt-10 text-sm'><MdVerified /> &nbsp;
                 <span className='mar'>Verified Artist </span>

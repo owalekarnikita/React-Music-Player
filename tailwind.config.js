@@ -7,7 +7,8 @@ module.exports = {
     "./src/Components/Aside.tsx",
     "./src/Components/Bottom.tsx",
     "./src/Components/Search.tsx",
-    "./src/Components/ListArray.tsx"
+    "./src/Components/ListArray.tsx",
+    "./src/Components/FixedBottom.tsx"
   ],
   theme: {
     extend: {},

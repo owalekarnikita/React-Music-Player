@@ -15,13 +15,13 @@ import FixedBottom from './Components/FixedBottom';
 
 function App() {
   return (
-      <div className='main p-2'>
+      <div className='main p-2 h-screen w-full overflow-hidden'>
         <Navbar />
-        <div className='pl-2 pt-2 pr-2 grid grid-rows-8 max-h-full'>
+        <div className='p-2 grid grid-rows-8'>
           <section className='row-span-1'><Search /></section>
-          <section className='row-span-6 overflow-auto p-2 pr-4'>
+          <section className='row-span-6 p-2 pr-4'>
             <Routes>
-              <Route path="/" element={<Main />}   />
+              <Route path="/" element={<Main />} />
               <Route path="Trends" element={<Trends />} />
               <Route path="Library" element={<Library />} />
               <Route path="extra-pages/Discover" element={<Discover />} />
@@ -34,7 +34,7 @@ function App() {
               <Route path="extra-pages/Eg" element={<Eg />} />
             </Routes>
           </section>
-          <section className='row-span-1'>
+          <section className='row-span-1 sticky bottom-0 pr-4 pl-4 rounded'>
               <FixedBottom />
           </section>
         </div>

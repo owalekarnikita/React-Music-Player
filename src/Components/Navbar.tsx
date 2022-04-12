@@ -10,7 +10,7 @@ import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <div className='h-screen divbor'>
+    <div className='w-full divbor'>
         <img src={require('./images/logo.png')} alt='logo' className='p-2'/>
         <br/>
         <section className='pl-2'>
