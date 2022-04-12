@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACI,EADF,CACE,EAAE,CAAC;EACC,gBAAgB,EAAE,WAAW;CAChC;;AAHL,AAII,EAJF,CAIE,EAAE,AAAA,MAAM,CACR;EACI,gBAAgB,EAAE,SAAS;CAC9B",
+    "sources": [
+        "listarray.scss"
+    ],
+    "names": [],
+    "file": "listarray.css"
+}

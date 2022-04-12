@@ -11,8 +11,7 @@ import { NavLink } from 'react-router-dom';
 const Navbar = () => {
   return (
     <div className='w-full divbor'>
-        <img src={require('./images/logo.png')} alt='logo' className='p-2'/>
-        <br/>
+        <img src='./logo2.svg' alt='logo' className=' h-24 w-28 pl-2'/>
         <section className='pl-2'>
             <ul>
                 <li className='li p-2'> <NavLink to="/"> <AiOutlineHome className='a'/> Home</NavLink> </li>

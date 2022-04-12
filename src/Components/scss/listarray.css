@@ -1,0 +1,8 @@
+ol li {
+  background-color: transparent;
+}
+
+ol li:hover {
+  background-color: lightgrey;
+}
+/*# sourceMappingURL=listarray.css.map */

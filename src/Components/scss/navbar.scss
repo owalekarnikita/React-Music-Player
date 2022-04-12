@@ -17,6 +17,8 @@ section {
             color: red;
             font-weight: bold;
             display: flex;
+            transition: all 0.3s;
+            font-size: large;
             .a{
                 margin-right: 5%;
                 margin-top: 4px;

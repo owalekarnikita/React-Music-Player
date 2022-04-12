@@ -19,6 +19,9 @@ section ul li a.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  font-size: large;
 }
 
 section ul li a.active .a {
