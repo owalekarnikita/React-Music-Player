@@ -1,10 +1,13 @@
 import React from 'react';
-import ReactAudioPlayer from 'react-audio-player';
+// import ReactAudioPlayer from 'react-audio-player';
 import { MdOutlineSkipNext, MdOutlineSkipPrevious, MdOutlineRepeat,MdOutlineCastConnected} from "react-icons/md";
 import { BsFillPauseCircleFill, BsShuffle,BsVolumeOff,BsVolumeDown } from "react-icons/bs";
 import { VscClearAll } from "react-icons/vsc";
 
+
 const FixedBottom = () => {
+
+
   return (
         <section className=''>
             <hr className="p-2" />
@@ -22,21 +25,17 @@ const FixedBottom = () => {
             </span>
             <BsVolumeOff className='p-1 text-2xl'/>
             <BsVolumeDown className='p-1 text-2xl'/>
-             {/* <Marquee>We are Never Ever Getting Back together ...</Marquee> */}
-            
             </span>
-            {/* <div className="w-full bg-gray-200 items-center p-3 rounded-full">
-                <progress className="bg-gray-600 h-1 w-full rounded-full" ></progress>
-            </div> */}
-            <ReactAudioPlayer
+            {/* <ReactAudioPlayer
                 src={require('./songs/1.mp3')}
                 controls
                 className= "w-full"
                 onPlay={e => console.log("onPlay")}
-                />
-            {/* <audio controlsList='' className='w-full'>
-                <source src={require('./songs/1.mp3')} type="audio/mpeg"/>
-            </audio> */}
+                /> */}
+            <audio preload="metadata" className='w-full' src={require('./songs/1.mp3')}  />
+                <div>
+                    <input type="range" className='w-full h-1'/> 
+                </div>
         </section>
   )
 }

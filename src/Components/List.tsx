@@ -1,5 +1,5 @@
 
-import React,{useState} from 'react';
+import React,{ useState} from 'react';
 // import Bottom from './Bottom';
 import ListArray from './ListArray';
 
@@ -15,6 +15,8 @@ import ListArray from './ListArray';
         url ?: string
     }[]
 }
+
+
 
 export const List = () => {
     const [list] = useState<MyList["list"]>([

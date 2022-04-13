@@ -13,6 +13,8 @@ import Eg from './Components/extra-pages/Eg';
 import Search from './Components/Search';
 import FixedBottom from './Components/FixedBottom';
 
+
+
 function App() {
   return (
       <div className='main p-2 h-screen w-full overflow-hidden'>
@@ -20,6 +22,7 @@ function App() {
         <div className='p-2 grid grid-rows-8'>
           <section className='row-span-1'><Search /></section>
           <section className='row-span-6 p-2 pr-4'>
+            
             <Routes>
               <Route path="/" element={<Main />} />
               <Route path="Trends" element={<Trends />} />
@@ -39,6 +42,7 @@ function App() {
           </section>
         </div>
       </div>
+
   );
 }
 
