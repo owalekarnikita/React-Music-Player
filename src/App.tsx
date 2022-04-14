@@ -38,7 +38,7 @@ function App() {
             </Routes>
           </section>
           <section className='row-span-1 sticky bottom-0 pr-4 pl-4 rounded'>
-              <FixedBottom />
+              <FixedBottom/>
           </section>
         </div>
       </div>

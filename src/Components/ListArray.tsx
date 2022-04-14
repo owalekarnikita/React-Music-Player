@@ -30,17 +30,23 @@ const ListArray:React.FC<Artist> = ({list}) => {
                                 </li>
                         {list.map((song,index) => {
 
+                                let a = new Audio(song.url);
                                 //play song onclick
                                 const Active =( ) => {
-                                        let a = new Audio(song.url);
                                         a.play();
                                         // a.onloadedmetadata = function() {
                                         //     alert(a.duration);
                                         // };
-                            }
+                                        
+                                
+                                }
+                                const Pause = () => {
+                                    a.pause();
+                                    
+                                }
 
                             return (
-                                <li className='grid grid-cols-12 gap-1 p-1 pl-3 pr-3' key={index} onClick={Active} >
+                                <li className='grid grid-cols-12 gap-1 p-1 pl-3 pr-3' key={index} onClick={Active} onChange={Pause} >
                                     <span className='col-span-1'>{song.id}</span>
                                     <span className='col-span-1'><img src={song.img} alt="img" className='w-14 h-14'/></span>
                                     <span className='col-span-5'>{song.title}</span>

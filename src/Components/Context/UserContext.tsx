@@ -1,7 +1,6 @@
-import { createContext} from 'react';
+import React from 'react';
 
-export interface Data {
-    list : {
+export interface Data  {
         id : number,
         img : string,
         title :string,
@@ -9,8 +8,10 @@ export interface Data {
         time : string,
         album : string,
         url ?: string
-    }[]
-}
+    }
 
 
-export const UserContext = createContext<Data["list"]>([]);
+export const UserContext = React.createContext<Data[] | null>(null);
+
+// export const UserContextProvider = UserContext.Provider;
+// export const UserContextConsumer = UserContext.Consumer;

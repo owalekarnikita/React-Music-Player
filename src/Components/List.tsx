@@ -1,5 +1,6 @@
 
 import React,{ useState} from 'react';
+// import FixedBottom from './FixedBottom';
 // import Bottom from './Bottom';
 import ListArray from './ListArray';
 
@@ -108,8 +109,7 @@ export const List = () => {
   return (
       <div>
         <ListArray list ={list}/>
-        {/* <hr/><br />
-        <Bottom list={list} /> */}
+        {/* <FixedBottom list={list}/> */}
     </div>
   )
 }
