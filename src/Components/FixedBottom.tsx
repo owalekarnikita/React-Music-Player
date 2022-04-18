@@ -1,22 +1,27 @@
-import React, { useState, useRef, Ref, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 // import ReactAudioPlayer from 'react-audio-player';
 import { MdOutlineSkipNext, MdOutlineSkipPrevious, MdOutlineRepeat,MdOutlineCastConnected} from "react-icons/md";
 import { BsFillPauseCircleFill, BsShuffle,BsVolumeOff,BsVolumeDown ,BsFillPlayCircleFill} from "react-icons/bs";
 import { VscClearAll } from "react-icons/vsc";
+import { UserContext } from './context/UserContext';
 
 
 
-const FixedBottom = () => {
+const FixedBottom= () => {
+    const {songList,activeSong} = useContext(UserContext);
+
+    // console.log(songList);
     const [isPlaying, setIsPlaying] =useState(false); //useState 
     const[duration, setDuration] =useState(0);  //use state for duration
-    const[currentTime, setCurrentTime] = useState(0);
+    // const[currentTime, setCurrentTime] = useState(0);
 
-    const audioPlayer = useRef(new Audio(require('./songs/1.mp3'))) ; //Use Ref
-    // const ProgressBar = React.useRef<HTMLInputElement>();
+    const audioPlayer = useRef(new Audio(require('./songs/2.mp3'))) ; //Use Ref
+    // const ProgressBar = React.useRef<HTMLInputElement>(null!);
 
     useEffect(() => {
         const dur = Math.floor(audioPlayer.current.duration);
         setDuration(dur);
+        // ProgressBar.current.max = dur;
     },[audioPlayer?.current?.onloadedmetadata, audioPlayer?.current.readyState]);
 
     const timeCalculate = (sec : number)=> {
@@ -24,7 +29,6 @@ const FixedBottom = () => {
         const returnMin=  min < 10 ? `0${min}` : `${min}`;
         const seconds = Math.floor(sec%60);
         const returnSecs=  seconds < 10 ? `0${seconds}` : `${seconds}`;
-
         return (
             `${returnMin} : ${returnSecs}`
         );
@@ -42,16 +46,21 @@ const FixedBottom = () => {
             audioPlayer.current.play();
         }
     }
+    // console.log(audioPlayer);
     // const playNext = () => {
     //     audioPlayer.next();
     // }
 
-  return (
 
+
+  return (
+ 
         <section className=''>
             <hr className="p-2" />
             <span className='grid grid-cols-12 gap-x-0'>
-            <audio ref={audioPlayer} preload="metadata" className='w-full' src={require('./songs/1.mp3')} />
+                
+            <audio preload="metadata" className='w-full' src="asdjk" ref={audioPlayer} />
+               
             <span className='col-span-5 flex p-1 pl-10'>
                 <button>
                     <VscClearAll className='p-1 text-2xl'/>
@@ -84,12 +93,14 @@ const FixedBottom = () => {
                 <BsVolumeDown className='p-1 text-2xl'/>
             </button>
             </span>
-                <div className='flex p-1'>
-                    <span className='p-1'>{timeCalculate(currentTime)}</span>
-                    <input type="range"  className='w-2/3 h-1 mt-4' defaultValue="0" /> 
+                <div className='flex p-1 ml-10 mr-10'>
+                    <span className='p-1'>0:00</span>
+                    <input type="range"  className='w-3/4 h-1 mt-4 ' defaultValue="0"  /> 
                     <span className='p-1'>{(duration && !isNaN(duration)) && timeCalculate(duration)}</span>
                 </div>
         </section>
+   
+        
   )
 }
 

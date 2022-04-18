@@ -1,12 +1,13 @@
 import React from 'react';
 import "./scss/aside.css";
-import List from './List'; 
 import { MdVerified } from "react-icons/md";
+import ListArray from './ListArray';
 
 
 export const Aside = ()=> {
   
   return (
+    <div className='h-3/4 p-2 pr-3 overflow-auto'>
       <div className='h-screen'>
           <section className='bgimg p-10 text-white'>
             <span className='tg pt-10 text-sm'><MdVerified /> &nbsp;
@@ -20,9 +21,10 @@ export const Aside = ()=> {
           <br />
           <section>
               <h3 className='text-xl font-bold p-2'>Popular <span className='text-sm float-right pr-5 font-normal'>See all</span></h3> 
-              <List/>
+              <ListArray />
           </section> 
       </div>
+    </div>
   )
 }
 

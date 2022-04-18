@@ -1,6 +1,7 @@
 import React from 'react';
 
 export interface Data  {
+
         id : number,
         img : string,
         title :string,
@@ -9,9 +10,13 @@ export interface Data  {
         album : string,
         url ?: string
     }
+    type Props = {
+        songList : Data[],
+        activeSong : Data
+    }
 
 
-export const UserContext = React.createContext<Data[] | null>(null);
+export const UserContext = React.createContext<Props>({} as Props);
 
-// export const UserContextProvider = UserContext.Provider;
-// export const UserContextConsumer = UserContext.Consumer;
+// export const DataProvider = UserContext.Provider;
+// export const DataConsumer = UserContext.Consumer;
