@@ -17,6 +17,3 @@ export interface Data  {
 
 
 export const UserContext = React.createContext<Props>({} as Props);
-
-// export const DataProvider = UserContext.Provider;
-// export const DataConsumer = UserContext.Consumer;

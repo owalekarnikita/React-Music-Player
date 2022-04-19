@@ -12,10 +12,20 @@ import Eg from './Components/extra-pages/Eg';
 import Search from './Components/Search';
 import FixedBottom from './Components/FixedBottom';
 import UserData from 'Components/context/UserData';
+import {useState} from 'react';
 
 
 
 function App() {
+  const [songs] = useState([
+    { url: require("./Components/songs/1.mp3") },
+    { url: require("./Components/songs/2.mp3") },
+    { url: require("./Components/songs/3.mp3") },
+    { url: require("./Components/songs/4.mp3") }
+  ]);
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
+  console.log(currentSongIndex);
+
   return (
     <UserData >
       <div className='main p-2 h-screen w-full overflow-hidden'>
@@ -38,7 +48,11 @@ function App() {
             </Routes>
           </section>
           <section className='row-span-1 sticky bottom-0 pr-4 pl-4 rounded'>
-              <FixedBottom />
+              <FixedBottom 
+              currentSongIndex={currentSongIndex}
+              setCurrentSongIndex={setCurrentSongIndex}
+              songs={songs}
+              />
           </section>
         </div>
       </div>

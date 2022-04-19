@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { UserContext,Data } from './UserContext';
 
 
 const UserData:React.FC = ({children}) => {
-    // const ab = useContext(UserContext);
-    const [activeSong, setActiveSong] =useState<Data>({} as Data)
+    const [activeSong] =useState<Data>({} as Data)
     const [data] =useState<Data[]>([
             {
                 id : 1,
@@ -88,7 +87,23 @@ const UserData:React.FC = ({children}) => {
                 url : require('.././songs/3.mp3')
             }
         ]);
-        const {Provider} = UserContext;
+        const {Provider} = UserContext; //Provider 
+
+        // const [activeSongIndex, setActiveSongIndex] =useState(); //song list
+        // const [nextSong, setNextSong] =useState();  //next song play
+        // useEffect(() =>{
+        //     setNextSong(() => {
+        //         if(activeSongIndex+1 > data.length -1 )
+        //         {
+        //             return 0;
+        //         }
+        //         else{
+        //             return activeSongIndex + 1;
+        //         }
+        //     })
+        // });
+        
+
   return (
       <Provider value ={{songList : data,activeSong}}>
         {children}

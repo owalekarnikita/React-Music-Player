@@ -9,20 +9,11 @@ const ListArray = () => {
 
     const {songList,activeSong} = useContext(UserContext);
     const [isPlaying, setIsPlaying] = useState(false); //useState 
+    // const [songPlay, setSongPlay] = useState();
+    
     const audioPlayer = useRef<HTMLAudioElement>(null!);
-    const TogglePlay = () => {  //Toggle icon button
-        setIsPlaying(!isPlaying);
-
-        if (isPlaying)
-        {
-            audioPlayer.current.pause();
-        }
-        else 
-        {
-            audioPlayer.current.play();
-        }
-    }
-   
+//    setSongPlay(songPlay);
+    
   return (
               <div>
                     <ol className=''>
@@ -34,25 +25,34 @@ const ListArray = () => {
                                     <span className='col-span-1'>Time</span>
                                     <span className='col-span-2'>Album</span>
                                 </li>
-                                <audio src='./songs/3.mp3' ref={audioPlayer}></audio>
+                                
+                                {/* map songList array */}
                         {songList.map((song,index) => {
-                                console.log(song.url)
-                                let a = new Audio(song.url);
-                                // //play song onclick
-                                const Active =( ) => {
-                                        // setIsPlaying(!isPlaying);
-                                        a.play();
-                                        
+                                // console.log(audioPlayer);
+                                // const a = new Audio(song.url);
+                            const TogglePlay = () => {  //Toggle icon button
+                                setIsPlaying(!isPlaying);
+
+                                if (isPlaying)
+                                {
+                                    audioPlayer.current.pause();
                                 }
+                                else 
+                                {
+                                    audioPlayer.current.play();
+
+                                }  
+                            }   
 
                             return (
-                                <li className='grid grid-cols-12 gap-1 p-1 pl-3 pr-3' key={index} onClick={Active}>
-                                    <span className='col-span-1' onClick={TogglePlay}>{isPlaying ? <BsFillPauseCircleFill className='p-1 text-2xl'  /> : <BsFillPlayCircleFill className='p-1 text-2xl'/>}</span>
+                                <li className='grid grid-cols-12 gap-1 p-1 pl-3 pr-3' key={index} >
+                                    <span className='col-span-1' onClick={TogglePlay}>{isPlaying ? <BsFillPauseCircleFill className='p-1 text-2xl'/> : <BsFillPlayCircleFill className='p-1 text-2xl'/>}</span>
                                     <span className='col-span-1'><img src={song.img} alt="img" className='w-14 h-14'/></span>
                                     <span className='col-span-5'>{song.title}</span>
                                     <span className='col-span-2'>{song.listeners}</span>
                                     <span className='col-span-1'>{song.time}</span> 
                                     <span className='col-span-2'>{song.album}</span>
+                                    <audio src={song.url} ref={audioPlayer}></audio>
                                 </li>
                             );
                         })}
