@@ -6,14 +6,23 @@ import { UserContext } from './context/UserContext';
 
 
 const ListArray = () => {
-
-    const {songList,activeSong} = useContext(UserContext);
+    
+    const {songList,activeSong,setActiveSong} = useContext(UserContext);
     const [isPlaying, setIsPlaying] = useState(false); //useState 
     // const [songPlay, setSongPlay] = useState();
-    
+    // console.log(activeSong);
     const audioPlayer = useRef<HTMLAudioElement>(null!);
 //    setSongPlay(songPlay);
-    
+
+const songReceiveHandler = (activeSong) => {
+    const songData = {
+      title: activeSong.title,
+      songUrl: activeSong.url,
+    };
+    setActiveSong(songData.songUrl);
+    // console.log(songData);
+}
+
   return (
               <div>
                     <ol className=''>
@@ -45,7 +54,7 @@ const ListArray = () => {
                             }   
 
                             return (
-                                <li className='grid grid-cols-12 gap-1 p-1 pl-3 pr-3' key={index} >
+                                <li className='grid grid-cols-12 gap-1 p-1 pl-3 pr-3' key={index} onClick={() => songReceiveHandler(song)}>
                                     <span className='col-span-1' onClick={TogglePlay}>{isPlaying ? <BsFillPauseCircleFill className='p-1 text-2xl'/> : <BsFillPlayCircleFill className='p-1 text-2xl'/>}</span>
                                     <span className='col-span-1'><img src={song.img} alt="img" className='w-14 h-14'/></span>
                                     <span className='col-span-5'>{song.title}</span>

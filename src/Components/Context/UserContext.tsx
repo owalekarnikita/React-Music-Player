@@ -12,7 +12,8 @@ export interface Data  {
     }
     type Props = {
         songList : Data[],
-        activeSong : Data
+        activeSong : Data,
+        setActiveSong: React.Dispatch<React.SetStateAction<Data>>
     }
 
 

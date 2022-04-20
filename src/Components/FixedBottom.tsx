@@ -1,32 +1,33 @@
-import React, { useState, useRef, useEffect} from 'react';
+import React, { useState, useRef, useEffect, useContext} from 'react';
 // import ReactAudioPlayer from 'react-audio-player';
 import { MdOutlineSkipNext, MdOutlineSkipPrevious, MdOutlineRepeat,MdOutlineCastConnected} from "react-icons/md";
 import { BsFillPauseCircleFill, BsShuffle,BsVolumeOff,BsVolumeDown ,BsFillPlayCircleFill} from "react-icons/bs";
 import { VscClearAll } from "react-icons/vsc";
-// import { UserContext } from './context/UserContext';
+import { UserContext } from './context/UserContext';
 
 
 
 const FixedBottom= (props:any) => {
-    // const {songList} = useContext(UserContext);
-    // console.log(songList);
+    const {songList,activeSong,setActiveSong} = useContext(UserContext);
+    console.log(setActiveSong);
     const [isPlaying, setIsPlaying] =useState(false); //useState 
     const[duration, setDuration] =useState(0);  //use state for duration
     const[currentTime, setCurrentTime] = useState(0);
-
+      
     //Use Ref function
-    const audioPlayer = useRef(new Audio(require('./songs/2.mp3'))) ; 
+    const audioPlayer = useRef(null) ; 
     const ProgressBar = React.useRef<HTMLInputElement | any>(null);
     const animeRef:any = useRef();
 
     //Use Effect function
     useEffect(() => {
-        const dur = Math.floor(audioPlayer.current.duration);
+        const dur = Math.floor(audioPlayer.current.duration || 0);
         setDuration(dur);
         
         ProgressBar.current.max = dur;
-    },[audioPlayer?.current?.onloadedmetadata, audioPlayer?.current.readyState]);
-
+        // console.log(audioPlayer?.current?.readyState,"ahgs");
+    },[audioPlayer?.current?.onloadedmetadata,audioPlayer?.current?.readyState]);
+    //
     const timeCalculate = (sec : number)=> {
         const min = Math.floor(sec/60);
         const returnMin=  min < 10 ? `0${min}` : `${min}`;
@@ -68,10 +69,11 @@ const FixedBottom= (props:any) => {
         setCurrentTime(ProgressBar.current.value);
 
     }
-    // console.log(audioPlayer);
-    // const playNext = () => {
-    //     audioPlayer.next();
-    // }
+
+
+    // Play a specific track
+    
+
     const changeSongIndex = (next = false) => {
         props.setCurrentSongIndex((s:any) => {
           if (next) {
@@ -93,7 +95,7 @@ const FixedBottom= (props:any) => {
             <hr className="p-2" />
             <span className='grid grid-cols-12 gap-x-0'>
 
-            <audio preload="metadata" className='w-full' src={props.songs[props.currentSongIndex].url} ref={audioPlayer} /> 
+            <audio preload="metadata" className='w-full' src="ABC"  ref={audioPlayer} /> 
 
             <span className='col-span-5 flex p-1 pl-10'>
                 <button>
@@ -103,7 +105,7 @@ const FixedBottom= (props:any) => {
                     <MdOutlineCastConnected className='p-1 text-2xl'/>
                 </button>
             </span>
-            <span className='flex col-span-5 text-center'>
+            <span className='flex col-span-4 text-center'>
                 <button>
                     <BsShuffle className='p-1 text-2xl'/> 
                 </button>
@@ -120,12 +122,16 @@ const FixedBottom= (props:any) => {
                 <MdOutlineRepeat className='p-1 text-2xl'/>
                 </button>
             </span>
-            <button>
-                <BsVolumeOff className='p-1 text-2xl'/>
-            </button>
-            <button>
-                <BsVolumeDown className='p-1 text-2xl'/>
-            </button>
+            <span className='flex'>
+                <button>
+                    <BsVolumeOff className=' text-2xl'/>
+                </button>
+                <input type="range" className='h-1 mt-3' min="0" max="100"/>
+                {/* <progress className='h-1 mt-3 w-20 bg-black'></progress> */}
+                <button>
+                    <BsVolumeDown className=' text-2xl'/>
+                </button>
+            </span>
             </span>
                 <div className='grid grid-cols-12 p-1 ml-10 mr-10'>
                     <span className='p-1 col-span-1'>{timeCalculate(currentTime)}</span>
