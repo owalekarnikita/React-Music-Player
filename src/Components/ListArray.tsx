@@ -22,7 +22,6 @@ const songReceiveHandler = (activeSong) => {
     setActiveSong(songData.songUrl);
     // console.log(songData);
 }
-
   return (
               <div>
                     <ol className=''>

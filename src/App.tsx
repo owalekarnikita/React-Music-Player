@@ -17,7 +17,6 @@ import UserData from 'Components/context/UserData';
 
 function App() {
 
-
   return (
     <UserData>
       <div className='main p-2 h-screen w-full overflow-hidden'>

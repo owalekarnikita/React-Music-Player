@@ -9,16 +9,21 @@ import { UserContext } from './context/UserContext';
 
 const FixedBottom= (props:any) => {
     const {songList,activeSong,setActiveSong} = useContext(UserContext);
-    console.log(setActiveSong);
+    // console.log(activeSong);
+    const [song] =useState(activeSong);
     const [isPlaying, setIsPlaying] =useState(false); //useState 
     const[duration, setDuration] =useState(0);  //use state for duration
     const[currentTime, setCurrentTime] = useState(0);
       
     //Use Ref function
-    const audioPlayer = useRef(null) ; 
+    const audioPlayer:any = useRef() ; 
     const ProgressBar = React.useRef<HTMLInputElement | any>(null);
     const animeRef:any = useRef();
 
+    const changeVol = (e:any) => {
+        audioPlayer.current.volume = Number(e.target.value / 100);
+        console.log(audioPlayer.current.volume);
+      };
     //Use Effect function
     useEffect(() => {
         const dur = Math.floor(audioPlayer.current.duration || 0);
@@ -95,7 +100,7 @@ const FixedBottom= (props:any) => {
             <hr className="p-2" />
             <span className='grid grid-cols-12 gap-x-0'>
 
-            <audio preload="metadata" className='w-full' src="ABC"  ref={audioPlayer} /> 
+            <audio preload="metadata" className='w-full' src={song}  ref ={audioPlayer} /> 
 
             <span className='col-span-5 flex p-1 pl-10'>
                 <button>
@@ -126,7 +131,7 @@ const FixedBottom= (props:any) => {
                 <button>
                     <BsVolumeOff className=' text-2xl'/>
                 </button>
-                <input type="range" className='h-1 mt-3' min="0" max="100"/>
+                <input type="range" className='h-1 mt-3' min="0" max="100" onChange={changeVol}/>
                 {/* <progress className='h-1 mt-3 w-20 bg-black'></progress> */}
                 <button>
                     <BsVolumeDown className=' text-2xl'/>
