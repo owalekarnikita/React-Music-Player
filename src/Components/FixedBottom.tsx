@@ -8,21 +8,21 @@ import { UserContext } from './context/UserContext';
 
 
 const FixedBottom= (props:any) => {
+   
     const {songList,activeSong,setActiveSong} = useContext(UserContext);
-    // console.log(activeSong);
-    const [song] =useState(activeSong);
+    console.log(activeSong);
     const [isPlaying, setIsPlaying] =useState(false); //useState 
     const[duration, setDuration] =useState(0);  //use state for duration
     const[currentTime, setCurrentTime] = useState(0);
       
     //Use Ref function
-    const audioPlayer:any = useRef() ; 
+    const audioPlayer = useRef<HTMLAudioElement>(); 
     const ProgressBar = React.useRef<HTMLInputElement | any>(null);
     const animeRef:any = useRef();
 
     const changeVol = (e:any) => {
         audioPlayer.current.volume = Number(e.target.value / 100);
-        console.log(audioPlayer.current.volume);
+        // console.log(audioPlayer.current.volume);
       };
     //Use Effect function
     useEffect(() => {
@@ -76,31 +76,38 @@ const FixedBottom= (props:any) => {
     }
 
 
-    // Play a specific track
-    
+    // Play a specific track next and prev song
+    const a = (activeSong.id);
+    const nextPlay = ()=> {
+         let nw = (a);
+         if(a === 9)
+         {
+             return 0;
+         }
+         else 
+         {setActiveSong(songList[nw]);}
 
-    const changeSongIndex = (next = false) => {
-        props.setCurrentSongIndex((s:any) => {
-          if (next) {
-            if (s < props.songs.length - 1) {
-              return s + 1;
-            }
-            return s;
-          } else {
-            if (s - 1< 0) {
-              return props.songs.length - 1;
-            }
-            return s - 1;
-          }
-        });
+            //console.log(activeSong.id);
     }
+    const prevPlay = ()=> {
+        let nw = (a-2);
+        if(a === 1)
+        {
+            return 0;
+        }
+        else 
+        {setActiveSong(songList[nw]);}
+
+          // console.log(activeSong.id);
+   }
+
   return (
  
         <section className=''>
             <hr className="p-2" />
             <span className='grid grid-cols-12 gap-x-0'>
 
-            <audio preload="metadata" className='w-full' src={song}  ref ={audioPlayer} /> 
+            <audio preload="metadata" className='w-full' src={activeSong.url} ref ={audioPlayer} /> 
 
             <span className='col-span-5 flex p-1 pl-10'>
                 <button>
@@ -114,13 +121,13 @@ const FixedBottom= (props:any) => {
                 <button>
                     <BsShuffle className='p-1 text-2xl'/> 
                 </button>
-                <button onClick={() => changeSongIndex(false)}>
+                <button onClick={prevPlay}>
                     <MdOutlineSkipPrevious className='p-1 text-2xl '/>
                 </button>
                 <button onClick={TogglePlay}>
                     {isPlaying ? <BsFillPauseCircleFill className='p-1 text-2xl'  /> :<BsFillPlayCircleFill className='p-1 text-2xl'/>}
                 </button>
-                <button onClick={() => changeSongIndex(true)}>
+                <button onClick={nextPlay}>
                     <MdOutlineSkipNext className='p-1 text-2xl '/>
                 </button>
                 <button>

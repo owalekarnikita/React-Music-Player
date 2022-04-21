@@ -7,21 +7,21 @@ import { UserContext } from './context/UserContext';
 
 const ListArray = () => {
     
-    const {songList,activeSong,setActiveSong} = useContext(UserContext);
+    const {songList,setActiveSong} = useContext(UserContext);
     const [isPlaying, setIsPlaying] = useState(false); //useState 
-    // const [songPlay, setSongPlay] = useState();
+
     // console.log(activeSong);
     const audioPlayer = useRef<HTMLAudioElement>(null!);
-//    setSongPlay(songPlay);
 
-const songReceiveHandler = (activeSong) => {
-    const songData = {
-      title: activeSong.title,
-      songUrl: activeSong.url,
-    };
-    setActiveSong(songData.songUrl);
-    // console.log(songData);
-}
+    const songReceiveHandler = (activeSong) => {
+        // const songData = {
+        //   title: activeSong.title,
+        //   songUrl: activeSong.url,
+        
+        // };
+        setActiveSong(activeSong);
+        // console.log(songData);
+    }
   return (
               <div>
                     <ol className=''>
@@ -40,7 +40,7 @@ const songReceiveHandler = (activeSong) => {
                                 // const a = new Audio(song.url);
                             const TogglePlay = () => {  //Toggle icon button
                                 setIsPlaying(!isPlaying);
-
+                                console.log(audioPlayer);
                                 if (isPlaying)
                                 {
                                     audioPlayer.current.pause();
