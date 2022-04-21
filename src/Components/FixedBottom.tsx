@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useContext} from 'react';
 import { MdOutlineSkipNext, MdOutlineSkipPrevious, MdOutlineRepeat,MdOutlineCastConnected} from "react-icons/md";
 import { BsFillPauseCircleFill, BsShuffle,BsVolumeOff,BsVolumeDown ,BsFillPlayCircleFill} from "react-icons/bs";
 import { VscClearAll } from "react-icons/vsc";
-import { UserContext } from './context/UserContext';
+import { UserContext } from './Context/UserContext';
 
 
 
