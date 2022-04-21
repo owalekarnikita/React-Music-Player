@@ -11,7 +11,7 @@ import Aside from './Components/Aside';
 import Eg from './Components/extra-pages/Eg';
 import Search from './Components/Search';
 import FixedBottom from './Components/FixedBottom';
-import UserData from 'Components/context/UserData';
+import UserData from 'Components/Context/UserData';
 
 
 
