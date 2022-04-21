@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect, useContext} from 'react';
-// import ReactAudioPlayer from 'react-audio-player';
 import { MdOutlineSkipNext, MdOutlineSkipPrevious, MdOutlineRepeat,MdOutlineCastConnected} from "react-icons/md";
 import { BsFillPauseCircleFill, BsShuffle,BsVolumeOff,BsVolumeDown ,BsFillPlayCircleFill} from "react-icons/bs";
 import { VscClearAll } from "react-icons/vsc";
@@ -22,7 +21,6 @@ const FixedBottom= (props:any) => {
 
     const changeVol = (e:any) => {
         audioPlayer.current.volume = Number(e.target.value / 100);
-        // console.log(audioPlayer.current.volume);
       };
     //Use Effect function
     useEffect(() => {
@@ -97,8 +95,6 @@ const FixedBottom= (props:any) => {
         }
         else 
         {setActiveSong(songList[nw]);}
-
-          // console.log(activeSong.id);
    }
 
   return (
